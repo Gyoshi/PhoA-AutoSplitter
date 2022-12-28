@@ -12,7 +12,7 @@ startup {
 	//Items and Upgrades
 	vars.itemMeta = new Dictionary<string, Tuple<bool,string,int,int>> { // key: (default setting, type, index, ID)
 		{"Slingshot", 				Tuple.Create(true,	"Tool",		0,		30)},
-		{"Mysterious Golem Head", 	Tuple.Create(true,	"Status",	262,	21)}, //TODO: Verify ID
+		{"Mysterious Golem Head", 	Tuple.Create(true,	"Status",	262,	21)},
 		{"Composite Bat", 			Tuple.Create(false,	"Status",	257,	7)},
 		{"Lisa's ID Card", 			Tuple.Create(false,	"Item",		0,		122)},
 		{"Bandit's Flute", 			Tuple.Create(true,	"Tool",		0,		29)},
@@ -54,8 +54,7 @@ startup {
 		{"Enter Scorchlands", 		Tuple.Create(true,	"p1_scorchlands_00")},
 		{"Enter Mul Caves", 		Tuple.Create(true,	"p1_mul_cave_00")},
 		{"Enter SPHERE", 			Tuple.Create(false,	"p1_sphere_garden_01")},
-		{"Enter E.D.E.N.", 			Tuple.Create(false,	"p1_pristine_city_hub")},
-		{"Final Cutscene", 			Tuple.Create(false,	"cutscene_good_end")}
+		{"Enter E.D.E.N.", 			Tuple.Create(false,	"p1_pristine_city_hub")}
 	};
 	vars.visited = new List<string>();
 	
@@ -137,7 +136,7 @@ split {
         int id = elem.Value.Item4;
 		/* if (!settings[key]) {
 			break;
-		} *///Could skip for performance
+		} //performance*/
 		
 		bool had;
 		bool has;
