@@ -11,5 +11,5 @@ Feel free to @Gyoshi on the Discord [Phoenotopia Fan Server](https://discord.gg/
 ## Known Issues
 - **Does not work if you launch the game after the autosplitter is loaded**
     - This is a big one, and I hope to fix it soon
-- Haven't found a trigger for the final split
+- Haven't found a trigger for the final split (you'll have to stop the timer yourself)
 - Would like a start trigger too (difficulty select)
