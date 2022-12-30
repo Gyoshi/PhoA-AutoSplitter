@@ -1,7 +1,7 @@
 # PhoA-AutoSplitter
 LiveSplit AutoSplitter for Phoenotopia: Awakening
 
-By default uses the same splits as WR (by astrohill, at the time of writing), but you can choose which things you split on based on various 
+By default uses the same splits as astrohill's Any% WR (at the time of writing), but you can choose which things you split on based on various 
 - Tools and Upgrades
 - Miscellaneous Flags
 - Locations
