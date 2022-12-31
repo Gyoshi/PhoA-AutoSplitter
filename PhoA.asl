@@ -48,7 +48,7 @@ startup {
 		{"Enter Atai Region", 		Tuple.Create(false,	"P1_world_map_SW")} ,
 		{"Bridge Skip", 			Tuple.Create(true,	"p1_bridge_daetai_02")},
 		{"Enter Daea Region", 		Tuple.Create(false,	"p1_world_map_c")},
-		{"Enter Aqua Line", 		Tuple.Create(false,	"P1_daea_sewers_01")},
+		{"Enter Aqua Line", 		Tuple.Create(false,	"P1_daea_sewers_01")}, // yup some of these have capital P's for no discernable reason
 		{"Enter Castle Dungeons", 	Tuple.Create(false,	"P1_dungeon_00")},
 		{"Enter Cosette Region", 	Tuple.Create(false,	"p1_world_map_c2")},
 		{"Enter Scorchlands", 		Tuple.Create(true,	"p1_scorchlands_00")},
@@ -71,6 +71,7 @@ startup {
 		bool defaultSetting = vars.flagMeta[key].Item1;
 		settings.Add(key, defaultSetting, null, "Miscellaneous Flags");
 	}
+	settings.Add("Katash 2", true, null, "Miscellaneous Flags");
 	foreach(string key in vars.roomMeta.Keys) {
 		bool defaultSetting = vars.roomMeta[key].Item1;
 		settings.Add(key, defaultSetting, null, "Locations");
@@ -86,6 +87,7 @@ startup {
 	settings.SetToolTip("Wrecker", "Defeat the Wrecker in Thomas' Lab");
 	settings.SetToolTip("Katash 1", "Defeat Katash atop the White Towers");
 	settings.SetToolTip("Gate to ADAM", "Open the final gate in EDEN with 6 chrystalis");
+	settings.SetToolTip("Katash 2", "Any% timer stop");
 	
 	// Locations
 	settings.SetToolTip("Locations", "These only trigger when you enter the location for the first time");
@@ -99,7 +101,9 @@ startup {
 init {
 	//TODO: figure out crash on game launch:
 	vars.Helper.TryLoad = (Func<dynamic, bool>)(mono => {
-		//vars.Helper["menuChoiceIndex"] = mono.Make<int>("PT2", "director", "current_opening_menu", "_menu_choice_index");
+		vars.Helper["inChoiceMode"] = mono.Make<bool>("PT2", "director", "_in_CHOICE_mode");
+		vars.Helper["allowInterrupt"] = mono.Make<bool>("PT2", "director", "allow_player_interrupt");
+		vars.Helper["globalTimer"] = mono.Make<int>("PT2", "director", "global_timer");
 		
 		vars.Helper["toolInv"] = mono.MakeArray<int>("PT2", "save_file", "_tool_IDs");
 		vars.Helper["itemInv"] = mono.MakeArray<int>("PT2", "save_file", "_item_IDs");
@@ -111,20 +115,18 @@ init {
 		
 		return true; 
 	});
-	
-	refreshRate=1;
 }
 
-update {
-	//print("__DEBUG__statusInv : " + current.statusInv[262-vars.statusOffset]);
-	print("__DEBUG__location : " + current.room);
-	//bool hasBombs = ((int[])current.toolInv).Any(x => x == 31);
-	//print("__DEBUG__hasBombs : " + hasBombs);
-} 
+start
+{
+	return (current.room == "cutscene_intro") && (old.inChoiceMode && !current.inChoiceMode);
+}
 
 onStart {
 	// Reset visited locations
 	vars.visited.Clear();
+	// Set in-game timer starting time
+	vars.startTime = current.globalTimer;
 }
 
 split {
@@ -182,4 +184,14 @@ split {
             return settings[key];
         }
     }
+
+	// Any% Stop
+	if ((current.room == "p1_phoenix_pods") && (old.allowInterrupt && !current.allowInterrupt)) {
+		return settings["Katash 2"];
+	}
+}
+
+gameTime
+{
+	return TimeSpan.FromSeconds((current.globalTimer-vars.startTime)/60.0);
 }
