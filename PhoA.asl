@@ -99,6 +99,9 @@ startup {
 }
 
 init {
+	print("start init sleep");
+	Thread.Sleep(3000);
+	print("end init sleep");
 	//TODO: figure out crash on game launch:
 	vars.Helper.TryLoad = (Func<dynamic, bool>)(mono => {
 		vars.Helper["inChoiceMode"] = mono.Make<bool>("PT2", "director", "_in_CHOICE_mode");
