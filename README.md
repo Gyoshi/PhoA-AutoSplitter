@@ -13,6 +13,6 @@ Also calculates in-game time, which does not include
 Feel free to @Gyoshi on the Discord [Phoenotopia Fan Server](https://discord.gg/Swd6zcTCQZ) for whatever
 
 ## Known Issues
-- **Does not work if you launch the game after the autosplitter is loaded**
-    - This is a big one, and I hope to fix it soon
+- ~~Does not work if you launch the game after the autosplitter is loaded~~
+    - I've applied a work-around, but let me know if you have trouble with this
 - Only tested on version 1.3.3 of the game
