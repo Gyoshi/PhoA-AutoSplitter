@@ -40,6 +40,7 @@ startup {
 		{"Tower of the Queen", 		Tuple.Create(true,	551)},
 		{"Megalith Station Gate", 	Tuple.Create(true,	606)},
 		{"Gate to ADAM", 			Tuple.Create(true,	631)}
+		// "Katash 2" handled individually
 	};
 	
 	// Locations
