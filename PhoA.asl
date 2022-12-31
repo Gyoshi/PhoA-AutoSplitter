@@ -1,8 +1,6 @@
 /*
 indices and item IDs used here came from this:
 google sheet explaining save file data by Pimez: https://docs.google.com/spreadsheets/d/1AsOEO6XCPuL29ej32D46gu-Uj5CbhDqaEGVwEBiGTBI/
-
-Much love to Ero who helped me out a bunch on the Speedrun Tool Development discord
 */
 
 state("PhoenotopiaAwakening") {}

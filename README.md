@@ -16,3 +16,6 @@ Feel free to @Gyoshi on the Discord [Phoenotopia Fan Server](https://discord.gg/
 - ~~Does not work if you launch the game after the autosplitter is loaded~~
     - I've applied a work-around, but let me know if you have trouble with this
 - Only tested on version 1.3.3 of the game
+
+----------
+Much love to Ero who helped me out a bunch on the Speedrun Tool Development discord
