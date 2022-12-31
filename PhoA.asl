@@ -11,51 +11,51 @@ startup {
     // -- Metadata --
     //Items and Upgrades
     vars.itemMeta = new Dictionary<string, Tuple<bool,string,int,int>> { // key: (default setting, type, index, ID)
-        {"Slingshot", 				Tuple.Create(true,	"Tool",		0,		30)},
-        {"Mysterious Golem Head", 	Tuple.Create(true,	"Status",	262,	21)},
-        {"Composite Bat", 			Tuple.Create(false,	"Status",	257,	7)},
-        {"Lisa's ID Card", 			Tuple.Create(false,	"Item",		0,		122)},
-        {"Bandit's Flute", 			Tuple.Create(true,	"Tool",		0,		29)},
-        {"Bombs", 					Tuple.Create(false,	"Tool",		0,		31)},
-        {"Bart's Golem Head", 		Tuple.Create(false,	"Status",	262,	24)},
-        {"Concentration", 			Tuple.Create(false,	"Status",	239,	16)},
-        {"Sonic Spear", 			Tuple.Create(true,	"Tool",		0,		33)},
-        {"Royal Hymn", 				Tuple.Create(false,	"Status",	252,	126)},
-        {"Double Crossbow", 		Tuple.Create(false,	"Tool",		0,		38)},
-        {"Spheralis Shard", 		Tuple.Create(true,	"Item",		0,		36)},
-        {"Spheralis", 				Tuple.Create(true,	"Tool",		0,		35)}
+        {"Slingshot",               Tuple.Create(true,      "Tool",     0,      30)},
+        {"Mysterious Golem Head",   Tuple.Create(true,      "Status",   262,    21)},
+        {"Composite Bat",           Tuple.Create(false,     "Status",   257,    7)},
+        {"Lisa's ID Card",          Tuple.Create(false,     "Item",     0,      122)},
+        {"Bandit's Flute",          Tuple.Create(true,      "Tool",     0,      29)},
+        {"Bombs",                   Tuple.Create(false,     "Tool",     0,      31)},
+        {"Bart's Golem Head",       Tuple.Create(false,     "Status",   262,    24)},
+        {"Concentration",           Tuple.Create(false,     "Status",   239,    16)},
+        {"Sonic Spear",             Tuple.Create(true,      "Tool",     0,      33)},
+        {"Royal Hymn",              Tuple.Create(false,     "Status",   252,    126)},
+        {"Double Crossbow",         Tuple.Create(false,     "Tool",     0,      38)},
+        {"Spheralis Shard",         Tuple.Create(true,      "Item",     0,      36)},
+        {"Spheralis",               Tuple.Create(true,      "Tool",     0,      35)}
     };
     vars.statusOffset = 232;
         
     // Flags
     vars.flagMeta = new Dictionary<string, Tuple<bool,int>> { // key: (default setting, index)
-        {"Lockpick Flag", 			Tuple.Create(true,	27)},
-        {"Games Begin", 			Tuple.Create(false,	29)},
-        {"Free Fran", 				Tuple.Create(false,	186)},
-        {"Wrecker", 				Tuple.Create(true,	41)},
-        {"Thomas Kidnapped", 		Tuple.Create(false,	43)},
-        {"Katash 1", 				Tuple.Create(true, 	507)},
-        {"Tower of Dog", 			Tuple.Create(true,	553)}, // TODO: Verify which tower is which flag
-        {"Tower of the King", 		Tuple.Create(true,	552)},
-        {"Tower of the Queen", 		Tuple.Create(true,	551)},
-        {"Megalith Station Gate", 	Tuple.Create(true,	606)},
-        {"Gate to ADAM", 			Tuple.Create(true,	631)}
+        {"Lockpick Flag",           Tuple.Create(true,      27)},
+        {"Games Begin",             Tuple.Create(false,     29)},
+        {"Free Fran",               Tuple.Create(false,     186)},
+        {"Wrecker",                 Tuple.Create(true,      41)},
+        {"Thomas Kidnapped",        Tuple.Create(false,     43)},
+        {"Katash 1",                Tuple.Create(true,      507)},
+        {"Tower of Dog",            Tuple.Create(true,      553)}, // TODO: Verify which tower is which flag
+        {"Tower of the King",       Tuple.Create(true,      552)},
+        {"Tower of the Queen",      Tuple.Create(true,      551)},
+        {"Megalith Station Gate",   Tuple.Create(true,      606)},
+        {"Gate to ADAM",            Tuple.Create(true,      631)}
         // "Katash 2" handled individually
     };
     
     // Locations
     vars.roomMeta = new Dictionary<string, Tuple<bool,string>> { // key: (default setting, room)
-        {"Enter Doki Forest",		Tuple.Create(false,	"p1_duri_forest_01")},
-        {"Enter Atai Region", 		Tuple.Create(false,	"P1_world_map_SW")} ,
-        {"Bridge Skip", 			Tuple.Create(true,	"p1_bridge_daetai_02")},
-        {"Enter Daea Region", 		Tuple.Create(false,	"p1_world_map_c")},
-        {"Enter Aqua Line", 		Tuple.Create(false,	"P1_daea_sewers_01")}, // yup some of these have capital P's for no discernable reason
-        {"Enter Castle Dungeons", 	Tuple.Create(false,	"P1_dungeon_00")},
-        {"Enter Cosette Region", 	Tuple.Create(false,	"p1_world_map_c2")},
-        {"Enter Scorchlands", 		Tuple.Create(true,	"p1_scorchlands_00")},
-        {"Enter Mul Caves", 		Tuple.Create(true,	"p1_mul_cave_00")},
-        {"Enter SPHERE", 			Tuple.Create(false,	"p1_sphere_garden_01")},
-        {"Enter E.D.E.N.", 			Tuple.Create(false,	"p1_pristine_city_hub")}
+        {"Enter Doki Forest",       Tuple.Create(false,     "p1_duri_forest_01")},
+        {"Enter Atai Region",       Tuple.Create(false,     "P1_world_map_SW")} ,
+        {"Bridge Skip",             Tuple.Create(true,      "p1_bridge_daetai_02")},
+        {"Enter Daea Region",       Tuple.Create(false,     "p1_world_map_c")},
+        {"Enter Aqua Line",         Tuple.Create(false,     "P1_daea_sewers_01")}, // yup some of these have capital P's for no discernable reason
+        {"Enter Castle Dungeons",   Tuple.Create(false,     "P1_dungeon_00")},
+        {"Enter Cosette Region",    Tuple.Create(false,     "p1_world_map_c2")},
+        {"Enter Scorchlands",       Tuple.Create(true,      "p1_scorchlands_00")},
+        {"Enter Mul Caves",         Tuple.Create(true,      "p1_mul_cave_00")},
+        {"Enter SPHERE",            Tuple.Create(false,     "p1_sphere_garden_01")},
+        {"Enter E.D.E.N.",          Tuple.Create(false,     "p1_pristine_city_hub")}
     };
     vars.visited = new List<string>();
     
@@ -80,7 +80,7 @@ startup {
     
     // Items and upgrades
     settings.SetToolTip("Mysterious Golem Head", "Pick up the mysterious golem head from its crash site in the Anuri Temple");
-    settings.SetToolTip("Bart's Golem Head", "Have Thomas fix Bart('s golem head)");	
+    settings.SetToolTip("Bart's Golem Head", "Have Thomas fix Bart('s golem head)");    
 
     // Flags
     settings.SetToolTip("Lockpick Flag", "Find out Adar's house is locked by inspecting the door");
@@ -134,7 +134,7 @@ onStart {
 }
 
 split {
-    // Items and Upgrades	
+    // Items and Upgrades    
     foreach (var elem in vars.itemMeta) {
         string key = elem.Key;
         string type = elem.Value.Item2;
