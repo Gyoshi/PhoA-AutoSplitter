@@ -149,23 +149,18 @@ split {
         switch (type) {
             case ("Status") :
                 if (old.statusInv[index]!=current.statusInv[index] && current.statusInv[index]==id) {
-                    print("__DEBUG__Split : " + key);
                     return settings[key];
                 }
                 break;
             case ("Item") :
                 had = ((int[])old.itemInv).Any(x => x == id);// There defo exists a more performant way
-                has = ((int[])current.itemInv).Any(x => x == id);
-                if (!had && has) {
-                    print("__DEBUG__Split : " + key);
+                if (!had && ((int[])current.itemInv).Any(x => x == id)) {
                     return settings[key];
                 }
                 break;
             case ("Tool") :
                 had = ((int[])old.toolInv).Any(x => x == id);
-                has = ((int[])current.toolInv).Any(x => x == id);
-                if (!had && has) {
-                    print("__DEBUG__Split : " + key);
+                if (!had && ((int[])current.toolInv).Any(x => x == id)) {
                     return settings[key];
                 }
                 break;
@@ -175,7 +170,6 @@ split {
     foreach (string key in vars.flagMeta.Keys) {
         int index = vars.flagMeta[key].Item2;
         if (!old.flags[index] && current.flags[index]) {
-            print("__DEBUG__Split : " + key);
             return settings[key];
         }
     }
@@ -184,7 +178,6 @@ split {
         string roomName = vars.roomMeta[key].Item2;
         if ((current.room==roomName) && !vars.visited.Contains(roomName)) {
             vars.visited.Add(roomName);
-            print("__DEBUG__Split : " + key);
             return settings[key];
         }
     }
