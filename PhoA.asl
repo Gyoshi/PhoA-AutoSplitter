@@ -95,6 +95,8 @@ startup {
     
     // Load asl-help
     Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Unity");
+
+    refreshRate = 35;
 }
 
 init {
