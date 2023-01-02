@@ -41,7 +41,7 @@ startup {
         {"Tower of the Queen",      Tuple.Create(true,      551)},
         {"Megalith Station Gate",   Tuple.Create(true,      628)},
         {"Gate to ADAM",            Tuple.Create(true,      631)}
-        // "Katash 2" handled individually
+        // "Beat the Game" handled individually
     };
     
     // Locations
@@ -73,7 +73,7 @@ startup {
         bool defaultSetting = vars.flagMeta[key].Item1;
         settings.Add(key, defaultSetting, null, "Miscellaneous Flags");
     }
-    settings.Add("Katash 2", true, null, "Miscellaneous Flags");
+    settings.Add("Beat the Game", true, null, "Miscellaneous Flags");
     foreach(string key in vars.roomMeta.Keys) {
         bool defaultSetting = vars.roomMeta[key].Item1;
         settings.Add(key, defaultSetting, null, "Locations");
@@ -89,7 +89,7 @@ startup {
     settings.SetToolTip("Wrecker", "Defeat the Wrecker in Thomas' Lab");
     settings.SetToolTip("Katash 1", "Defeat Katash atop the White Towers");
     settings.SetToolTip("Gate to ADAM", "Open the final gate in EDEN with 6 chrystalis");
-    settings.SetToolTip("Katash 2", "Any% timer stop");
+    settings.SetToolTip("Beat the Game", "Any% timer stop (after Katash 2)");
     
     // Locations
     settings.SetToolTip("Locations", "These only trigger when you enter the location for the first time");
@@ -183,7 +183,7 @@ split {
     }
     // Any% Stop
     if ((current.room == "p1_phoenix_pods") && (old.allowInterrupt && !current.allowInterrupt)) {
-        return settings["Katash 2"];
+        return settings["Beat the Game"];
     }
 }
 
