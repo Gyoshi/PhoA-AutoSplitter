@@ -24,6 +24,9 @@ startup {
         {"Spheralis",               Tuple.Create(true,      "Tool",     0,      35)}
     };
     vars.statusOffset = 232;
+    vars.has = new Dictionary<string, bool>(vars.itemMeta.Count);
+    foreach (string key in vars.itemMeta.Keys) {vars.has[key] = false;}
+    vars.had = new Dictionary<string, bool>(vars.has);
         
     // Flags
     vars.flagMeta = new Dictionary<string, Tuple<bool,int>> { // key: (default setting, index)
@@ -133,37 +136,34 @@ onStart {
     vars.startTime = current.globalTimer;
 }
 
-split {
-    // Items and Upgrades    
+update
+{
     foreach (var elem in vars.itemMeta) {
         string key = elem.Key;
         string type = elem.Value.Item2;
         int index = elem.Value.Item3 - vars.statusOffset;
         int id = elem.Value.Item4;
-        /* if (!settings[key]) {
-            break;
-        } //performance*/
-        
-        bool had;
-        bool has;
+
+        vars.had[key] = vars.has[key];
         switch (type) {
             case ("Status") :
-                if (old.statusInv[index]!=current.statusInv[index] && current.statusInv[index]==id) {
-                    return settings[key];
-                }
+                vars.has[key] = current.statusInv[index]==id;
                 break;
             case ("Item") :
-                had = ((int[])old.itemInv).Any(x => x == id);// There defo exists a more performant way
-                if (!had && ((int[])current.itemInv).Any(x => x == id)) {
-                    return settings[key];
-                }
+                vars.has[key] = ((int[])current.itemInv).Any(x => x == id);
                 break;
             case ("Tool") :
-                had = ((int[])old.toolInv).Any(x => x == id);
-                if (!had && ((int[])current.toolInv).Any(x => x == id)) {
-                    return settings[key];
-                }
+                vars.has[key] = ((int[])current.toolInv).Any(x => x == id);
                 break;
+        }
+    }
+}
+
+split {
+    // Items and Upgrades    
+    foreach (var key in vars.itemMeta.Keys) {
+        if (!vars.had[key] && vars.has[key]) {
+            return settings[key];
         }
     }
     // Flags
@@ -181,7 +181,6 @@ split {
             return settings[key];
         }
     }
-
     // Any% Stop
     if ((current.room == "p1_phoenix_pods") && (old.allowInterrupt && !current.allowInterrupt)) {
         return settings["Katash 2"];
