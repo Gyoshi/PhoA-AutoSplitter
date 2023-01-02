@@ -36,8 +36,8 @@ startup {
         {"Wrecker",                 Tuple.Create(true,      41)},
         {"Thomas Kidnapped",        Tuple.Create(false,     43)},
         {"Katash 1",                Tuple.Create(true,      507)},
-        {"Tower of Dog",            Tuple.Create(true,      553)}, // TODO: Verify which tower is which flag
-        {"Tower of the King",       Tuple.Create(true,      552)},
+        {"Tower of Dog",            Tuple.Create(true,      552)},
+        {"Tower of the King",       Tuple.Create(true,      553)},
         {"Tower of the Queen",      Tuple.Create(true,      551)},
         {"Megalith Station Gate",   Tuple.Create(true,      628)},
         {"Gate to ADAM",            Tuple.Create(true,      631)}
