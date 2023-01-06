@@ -56,7 +56,7 @@ startup {
         {"Enter Scorchlands",       Tuple.Create(true,      "p1_scorchlands_00")},
         {"Enter Mul Caves",         Tuple.Create(true,      "p1_mul_cave_00")},
         {"Enter SPHERE",            Tuple.Create(false,     "p1_sphere_garden_01")},
-        {"Enter E.D.E.N.",          Tuple.Create(false,     "p1_pristine_city_hub")}
+        {"Enter E.D.E.N.",          Tuple.Create(false,     "p1_phoenix_sub")}
     };
     vars.visited = new List<string>();
     
