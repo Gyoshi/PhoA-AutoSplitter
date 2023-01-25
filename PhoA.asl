@@ -39,6 +39,7 @@ startup {
         {"Tower of Dog",            Tuple.Create(true,      552)},
         {"Tower of the King",       Tuple.Create(true,      553)},
         {"Tower of the Queen",      Tuple.Create(true,      551)},
+        {"Mother Computer 1",       Tuple.Create(false,     558)},
         {"Megalith Station Gate",   Tuple.Create(true,      628)},
         {"Gate to ADAM",            Tuple.Create(true,      631)}
         // "Beat the Game" handled individually
@@ -54,7 +55,8 @@ startup {
         {"Enter Castle Dungeons",   Tuple.Create(false,     "P1_dungeon_00")},
         {"Enter Cosette Region",    Tuple.Create(false,     "p1_world_map_c2")},
         {"Enter Scorchlands",       Tuple.Create(true,      "p1_scorchlands_00")},
-        {"Enter Mul Caves",         Tuple.Create(true,      "p1_mul_cave_00")},
+        {"Enter Mul Caves",         Tuple.Create(true,      "p1_mul_caves_00")},
+        {"Enter Mul Caves Nest",    Tuple.Create(false,     "p1_mul_caves_02")},
         {"Enter SPHERE",            Tuple.Create(false,     "p1_sphere_garden_01")},
         {"Enter E.D.E.N.",          Tuple.Create(false,     "p1_phoenix_sub")}
     };
@@ -94,6 +96,8 @@ startup {
     // Locations
     settings.SetToolTip("Locations", "These only trigger when you enter the location for the first time");
     settings.SetToolTip("Bridge Skip", "Enter the middle room of Kingdom Bridge for the first time");
+    settings.SetToolTip("Enter Mul Caves", "The room with the save before the caves proper");
+    settings.SetToolTip("Enter Mul Caves Nest", "The first room with the white nest thingies");
     settings.SetToolTip("Enter SPHERE", "Specifically the building itself, not directly from the overworld");
     
     // Load asl-help
@@ -138,6 +142,7 @@ onStart {
 
 update
 {
+    print("DEBUG : " + current.room);
     foreach (var elem in vars.itemMeta) {
         string key = elem.Key;
         string type = elem.Value.Item2;
