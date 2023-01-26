@@ -7,7 +7,7 @@ Can automatically start and split the timer. By default uses the same splits as 
 - Locations
 
 Also calculates in-game time, which does not include 
-- Time spent loading
+- Time spent loading or lagging
 - Time spent paused in the options or inventory menus
 
 Feel free to @Gyoshi on the Discord [Phoenotopia Fan Server](https://discord.gg/Swd6zcTCQZ) for whatever
