@@ -15,7 +15,6 @@ startup {
         {"Lisa's ID Card",          Tuple.Create(false,     "Item",     0,      122)},
         {"Bandit's Flute",          Tuple.Create(true,      "Tool",     0,      29)},
         {"Bombs",                   Tuple.Create(false,     "Tool",     0,      31)},
-        {"Bart's Golem Head",       Tuple.Create(false,     "Status",   262,    24)},
         {"Concentration",           Tuple.Create(false,     "Status",   239,    16)},
         {"Sonic Spear",             Tuple.Create(true,      "Tool",     0,      33)},
         {"Royal Hymn",              Tuple.Create(false,     "Status",   252,    126)},
@@ -34,6 +33,7 @@ startup {
         {"Games Begin",             Tuple.Create(false,     29)},
         {"Free Fran",               Tuple.Create(false,     186)},
         {"Wrecker",                 Tuple.Create(true,      41)},
+        {"Fix Bart",                Tuple.Create(false,     42)},
         {"Thomas Kidnapped",        Tuple.Create(false,     43)},
         {"Katash 1",                Tuple.Create(true,      507)},
         {"Tower of Dog",            Tuple.Create(true,      552)},
@@ -83,7 +83,7 @@ startup {
     
     // Items and upgrades
     settings.SetToolTip("Mysterious Golem Head", "Pick up the mysterious golem head from its crash site in the Anuri Temple");
-    settings.SetToolTip("Bart's Golem Head", "Have Thomas fix Bart('s golem head)");    
+    settings.SetToolTip("Fix Bart", "Have Thomas fix Bart('s golem head)");    
 
     // Flags
     settings.SetToolTip("Lockpick Flag", "Find out Adar's house is locked by inspecting the door");
@@ -142,7 +142,7 @@ onStart {
 
 update
 {
-    print("DEBUG : " + current.room);
+    //print("DEBUG : " + current.room);
     foreach (var elem in vars.itemMeta) {
         string key = elem.Key;
         string type = elem.Value.Item2;
@@ -168,6 +168,7 @@ split {
     // Items and Upgrades    
     foreach (var key in vars.itemMeta.Keys) {
         if (!vars.had[key] && vars.has[key]) {
+            print("SPLIT : " + key);
             return settings[key];
         }
     }
@@ -175,6 +176,7 @@ split {
     foreach (string key in vars.flagMeta.Keys) {
         int index = vars.flagMeta[key].Item2;
         if (!old.flags[index] && current.flags[index]) {
+            print("SPLIT : " + key);
             return settings[key];
         }
     }
@@ -182,6 +184,7 @@ split {
     foreach (string key in vars.roomMeta.Keys) {
         string roomName = vars.roomMeta[key].Item2;
         if ((current.room==roomName) && !vars.visited.Contains(roomName)) {
+            print("SPLIT : " + key);
             vars.visited.Add(roomName);
             return settings[key];
         }
