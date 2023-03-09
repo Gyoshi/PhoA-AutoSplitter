@@ -10,6 +10,7 @@ startup {
     //Items and Upgrades
     vars.itemMeta = new Dictionary<string, Tuple<bool,string,int,int>> { // key: (default setting, type, index, ID)
         {"Slingshot",               Tuple.Create(true,      "Tool",     0,      30)},
+        {"Anuri Pearlstone",        Tuple.Create(false,     "Item",     0,      98)},
         {"Mysterious Golem Head",   Tuple.Create(true,      "Status",   262,    21)},
         {"Composite Bat",           Tuple.Create(false,     "Status",   257,    7)},
         {"Lisa's ID Card",          Tuple.Create(false,     "Item",     0,      122)},
@@ -23,9 +24,9 @@ startup {
         {"Spheralis",               Tuple.Create(true,      "Tool",     0,      35)}
     };
     vars.statusOffset = 232;
-    vars.has = new Dictionary<string, bool>(vars.itemMeta.Count);
-    foreach (string key in vars.itemMeta.Keys) {vars.has[key] = false;}
-    vars.had = new Dictionary<string, bool>(vars.has);
+    vars.has = new Dictionary<string, int>(vars.itemMeta.Count);
+    foreach (string key in vars.itemMeta.Keys) {vars.has[key] = 0;}
+    vars.had = new Dictionary<string, int>(vars.has);
         
     // Flags
     vars.flagMeta = new Dictionary<string, Tuple<bool,int>> { // key: (default setting, index)
@@ -82,6 +83,7 @@ startup {
     }
     
     // Items and upgrades
+    settings.SetToolTip("Anuri Pearlstone", "Splits each time you pick up a pearlstone");
     settings.SetToolTip("Mysterious Golem Head", "Pick up the mysterious golem head from its crash site in the Anuri Temple");
     settings.SetToolTip("Fix Bart", "Have Thomas fix Bart('s golem head)");    
 
@@ -108,7 +110,7 @@ startup {
 
 init {
     print("start init sleep");
-    Thread.Sleep(3000);
+    //Thread.Sleep(3000);
     print("end init sleep");
     //TODO: figure out crash on game launch:
     vars.Helper.TryLoad = (Func<dynamic, bool>)(mono => {
@@ -118,6 +120,7 @@ init {
         
         vars.Helper["toolInv"] = mono.MakeArray<int>("PT2", "save_file", "_tool_IDs");
         vars.Helper["itemInv"] = mono.MakeArray<int>("PT2", "save_file", "_item_IDs");
+        vars.Helper["itemCount"] = mono.MakeArray<int>("PT2", "save_file", "_item_ID_count");
         vars.Helper["statusInv"] = mono.MakeArray<int>("PT2", "save_file", "_status_inventory"); // tuskStrike-lifeRing
         //vars.Helper["stats"] = mono.MakeArray<int>("PT2", "save_file", "_general_ints"); // playtime-critters
         vars.Helper["flags"] = mono.MakeArray<bool>("PT2", "save_file", "_booleans");
@@ -150,24 +153,35 @@ update
         int id = elem.Value.Item4;
 
         vars.had[key] = vars.has[key];
+        int numItems = 0;
         switch (type) {
             case ("Status") :
-                vars.has[key] = current.statusInv[index]==id;
+                if (current.statusInv[index]==id)
+                    numItems = 1;
                 break;
             case ("Item") :
-                vars.has[key] = ((int[])current.itemInv).Any(x => x == id);
+                for (int i = 0; i < current.itemInv.Length; i++)
+                {
+                    if (current.itemInv[i] == id)
+                    {
+                        numItems = current.itemCount[i];
+                        break;
+                    }
+                }
                 break;
             case ("Tool") :
-                vars.has[key] = ((int[])current.toolInv).Any(x => x == id);
+                if (((int[])current.toolInv).Any(x => x == id))
+                    numItems = 1;
                 break;
         }
+        vars.has[key] = numItems;
     }
 }
 
 split {
     // Items and Upgrades    
     foreach (var key in vars.itemMeta.Keys) {
-        if (!vars.had[key] && vars.has[key]) {
+        if (vars.has[key] > vars.had[key]) {
             print("SPLIT : " + key);
             return settings[key];
         }
