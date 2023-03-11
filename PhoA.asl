@@ -110,7 +110,7 @@ startup {
 
 init {
     print("start init sleep");
-    //Thread.Sleep(3000);
+    Thread.Sleep(3000);
     print("end init sleep");
     //TODO: figure out crash on game launch:
     vars.Helper.TryLoad = (Func<dynamic, bool>)(mono => {
