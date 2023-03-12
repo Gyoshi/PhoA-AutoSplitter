@@ -226,7 +226,7 @@ split {
     }
     // Locations
     foreach (string key in vars.roomMeta.Keys) {
-        string roomName = vars.roomMeta[key].Item2;
+        string roomName = vars.roomMeta[key];
         if ((current.room==roomName) && !vars.visited.Contains(roomName)) {
             print("SPLIT : " + key);
             vars.visited.Add(roomName);
