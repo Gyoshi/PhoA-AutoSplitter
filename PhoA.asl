@@ -54,6 +54,8 @@ startup {
         {"Enter Daea Region",       "p1_world_map_c"},
         {"Enter Aqua Line",         "P1_daea_sewers_01"},
         {"Enter Castle Dungeons",   "P1_dungeon_00"},
+        {"Enter White Tower",       "P1_towers_00"},
+        {"Climb White Tower",       "P1_tower_boss"},
         {"Enter Cosette Region",    "p1_world_map_c2"},
         {"Enter Scorchlands",       "p1_scorchlands_00"},
         {"Enter Mul Caves",         "p1_mul_caves_00"},
@@ -115,10 +117,12 @@ startup {
 
     settings.Add("Enter Doki Forest",       false,   "Enter Doki Forest         ドキの森", "Locations");
     settings.Add("Enter Atai Region",       false,   "Enter Atai Region         アタイのフィールド", "Locations");
-    settings.Add("Bridge Skip",             true,    "Bridge Skip               ブリッジ・スキップ", "Locations");
+    settings.Add("Bridge Skip",             true,    "Bridge Skip               ブリッジスキップ", "Locations");
     settings.Add("Enter Daea Region",       false,   "Enter Daea Region         デイアのフィールド", "Locations");
     settings.Add("Enter Aqua Line",         false,   "Enter Aqua Line           秘密の地下道", "Locations");
     settings.Add("Enter Castle Dungeons",   false,   "Enter Castle Dungeons     城の牢獄", "Locations");
+    settings.Add("Enter White Tower",       false,   "Enter White Towers        城の塔", "Locations");
+    settings.Add("Climb White Tower",       false,   "Climb White Towers        城の塔の登り切り", "Locations");
     settings.Add("Enter Cosette Region",    false,   "Enter Cosette Region      コセットのフィールド", "Locations");
     settings.Add("Enter Scorchlands",       true,    "Enter Scorchlands         スコーチランド", "Locations");
     settings.Add("Enter Mul Caves",         true,    "Enter Mul Caves           ミュール洞窟の外", "Locations");
@@ -127,7 +131,9 @@ startup {
     settings.Add("Enter E.D.E.N.",          false,   "Enter E.D.E.N.            E.D.E.N.", "Locations");
     
     settings.SetToolTip("Locations", "These only trigger when you enter the location for the first time");
-    settings.SetToolTip("Bridge Skip", "Enter the middle room of Kingdom Bridge for the first time");
+    settings.SetToolTip("Bridge Skip", "Enter the middle room of Kingdom Bridge");
+    settings.SetToolTip("Enter White Tower", "Enter the base of the towers (room next to balcony)");
+    settings.SetToolTip("Climb White Tower", "Enter the room with the save before the Katash fight");
     settings.SetToolTip("Enter Mul Caves", "The room with the save before the caves proper");
     settings.SetToolTip("Enter Mul Caves Nest", "The first room with the white nest thingies");
     settings.SetToolTip("Enter SPHERE", "Specifically the building itself, not directly from the overworld");
@@ -175,7 +181,7 @@ onStart {
 
 update
 {
-    //print("DEBUG : " + current.room);
+    print("DEBUG : " + current.room);
     foreach (var elem in vars.itemMeta) {
         string key = elem.Key;
         string type = elem.Value.Item1;
