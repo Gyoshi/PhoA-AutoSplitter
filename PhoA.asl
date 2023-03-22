@@ -181,7 +181,7 @@ onStart {
 
 update
 {
-    print("DEBUG : " + current.room);
+    // print("DEBUG : " + current.room);
     foreach (var elem in vars.itemMeta) {
         string key = elem.Key;
         string type = elem.Value.Item1;
