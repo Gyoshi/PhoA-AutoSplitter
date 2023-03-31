@@ -62,9 +62,7 @@ startup {
         {"Enter Mul Caves Nest",    "p1_mul_caves_02"},
         {"Enter SPHERE",            "p1_sphere_garden_01"},
         {"Enter E.D.E.N.",          "p1_phoenix_sub"},
-        {"Enter Lab D",             "p1_phoenix_lab_ur_09"},
-        {"Enter Lab E",             "p1_phoenix_lab_ml_01"},
-        {"Enter Lab A",             "p1_phoenix_lab_ul_01"},
+        {"Enter Lab D",             "p1_phoenix_lab_mr_01"},
         {"Enter Lab F",             "p1_phoenix_lab_lr_01"}
     };
     vars.visited = new List<string>();
@@ -134,8 +132,6 @@ startup {
     settings.Add("Enter SPHERE",            false,   "Enter SPHERE              スフィアのビル", "Locations");
     settings.Add("Enter E.D.E.N.",          false,   "Enter E.D.E.N.            E.D.E.N.", "Locations");
     settings.Add("Enter Lab D",             false,   "Enter E.D.E.N. Lab D      D", "Locations");
-    settings.Add("Enter Lab E",             false,   "Enter E.D.E.N. Lab E      E", "Locations");
-    settings.Add("Enter Lab A",             false,   "Enter E.D.E.N. Lab A      A", "Locations");
     settings.Add("Enter Lab F",             false,   "Enter E.D.E.N. Lab F      F", "Locations");
     
     settings.SetToolTip("Locations", "These only trigger when you enter the location for the first time");
