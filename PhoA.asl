@@ -166,6 +166,7 @@ init {
         vars.Helper["flags"] = mono.MakeArray<bool>("PT2", "save_file", "_booleans");
         
         vars.Helper["room"] = mono.MakeString("PT2", "_room_to_load");
+        vars.Helper["level_load_in_progress"] = mono.Make<bool>("PT2", "level_load_in_progress");
         
         return true; 
     });
@@ -179,8 +180,6 @@ start
 onStart {
     // Reset visited locations
     vars.visited.Clear();
-    // Set in-game timer starting time
-    vars.startTime = current.globalTimer;
 }
 
 update
@@ -249,7 +248,7 @@ split {
     }
 }
 
-gameTime
+isLoading
 {
-    return TimeSpan.FromSeconds((current.globalTimer-vars.startTime)/60.0);
+    return (old.globalTimer == current.globalTimer) && (current.level_load_in_progress || old.level_load_in_progress);
 }
