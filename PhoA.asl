@@ -71,19 +71,19 @@ startup {
     // Items and upgrades
     settings.Add("Items and Upgrades",  true, "Items and Upgrades     アイテム");
 
-    settings.Add("Slingshot",               true,   "Slingshot         パチンコ", "Items and Upgrades");
+    settings.Add("Slingshot",               false,  "Slingshot         パチンコ", "Items and Upgrades");
     settings.Add("Anuri Pearlstone",        false,  "Anuri Pearlstone  アヌリの宝珠", "Items and Upgrades");
-    settings.Add("Mysterious Golem Head",   true,   "Golem Head        謎のゴーレムヘッド", "Items and Upgrades");
+    settings.Add("Mysterious Golem Head",   false,  "Golem Head        謎のゴーレムヘッド", "Items and Upgrades");
     settings.Add("Composite Bat",           false,  "Composite Bat     コンポジットバット", "Items and Upgrades");
     settings.Add("Lisa's ID Card",          false,  "Lisa's ID Card    リサのＩⅮカード", "Items and Upgrades");
-    settings.Add("Bandit's Flute",          true,   "Bandit's Flute    盗賊の笛", "Items and Upgrades");
+    settings.Add("Bandit's Flute",          false,  "Bandit's Flute    盗賊の笛", "Items and Upgrades");
     settings.Add("Bombs",                   false,  "Bombs             ボム", "Items and Upgrades");
     settings.Add("Concentration",           false,  "Concentration     コンセントレーション", "Items and Upgrades");
-    settings.Add("Sonic Spear",             true,   "Sonic Spear       ソニックスピア", "Items and Upgrades");
+    settings.Add("Sonic Spear",             false,  "Sonic Spear       ソニックスピア", "Items and Upgrades");
     settings.Add("Royal Hymn",              false,  "Royal Hymn        王家の讃美歌", "Items and Upgrades");
     settings.Add("Double Crossbow",         false,  "Double Crossbow   ダブルクロスボウ", "Items and Upgrades");
-    settings.Add("Spheralis Shard",         true,   "Spheralis Shard   スフィアラリスのかけら", "Items and Upgrades");
-    settings.Add("Spheralis",               true,   "Spheralis         スフィアラリス", "Items and Upgrades");
+    settings.Add("Spheralis Shard",         false,  "Spheralis Shard   スフィアラリスのかけら", "Items and Upgrades");
+    settings.Add("Spheralis",               false,  "Spheralis         スフィアラリス", "Items and Upgrades");
     
     settings.SetToolTip("Anuri Pearlstone", "Splits each time you pick up a pearlstone");
     settings.SetToolTip("Mysterious Golem Head", "Pick up the mysterious golem head from its crash site in the Anuri Temple");
@@ -91,19 +91,19 @@ startup {
     // Flags
     settings.Add("Miscellaneous Flags", true, "Miscellaneous Flags    フラグ");
 
-    settings.Add("Lockpick Flag",           true,   "Lockpick Flag         アダルん家", "Miscellaneous Flags");
+    settings.Add("Lockpick Flag",           false,  "Lockpick Flag         アダルん家", "Miscellaneous Flags");
     settings.Add("Games Begin",             false,  "Games Begin           隠れんぼの始まり", "Miscellaneous Flags");
     settings.Add("Free Fran",               false,  "Free Fran             フラン先生の解放", "Miscellaneous Flags");
-    settings.Add("Wrecker",                 true,   "Wrecker               レッカー", "Miscellaneous Flags");
+    settings.Add("Wrecker",                 false,  "Wrecker               レッカー", "Miscellaneous Flags");
     settings.Add("Fix Bart",                false,  "Fix Bart              バートの修理", "Miscellaneous Flags");
     settings.Add("Thomas Kidnapped",        false,  "Thomas Kidnapped      トーマスの誘拐", "Miscellaneous Flags");
-    settings.Add("Katash 1",                true,   "Katash 1              カターシュ１", "Miscellaneous Flags");
-    settings.Add("Tower of Dog",            true,   "Tower of Dog          番犬の塔", "Miscellaneous Flags");
-    settings.Add("Tower of the King",       true,   "Tower of the King     王者の塔", "Miscellaneous Flags");
-    settings.Add("Tower of the Queen",      true,   "Tower of the Queen    王妃の塔", "Miscellaneous Flags");
+    settings.Add("Katash 1",                false,  "Katash 1              カターシュ１", "Miscellaneous Flags");
+    settings.Add("Tower of Dog",            false,  "Tower of Dog          番犬の塔", "Miscellaneous Flags");
+    settings.Add("Tower of the King",       false,  "Tower of the King     王者の塔", "Miscellaneous Flags");
+    settings.Add("Tower of the Queen",      false,  "Tower of the Queen    王妃の塔", "Miscellaneous Flags");
     settings.Add("Mother Computer 1",       false,  "Mother Computer 1     マザコン１", "Miscellaneous Flags");
-    settings.Add("Megalith Station Gate",   true,   "Megalith Station      メガリスステーション", "Miscellaneous Flags");
-    settings.Add("Gate to ADAM",            true,   "Gate to ADAM          最深部のADAMへの隔壁", "Miscellaneous Flags");
+    settings.Add("Megalith Station Gate",   false,  "Megalith Station      メガリスステーション", "Miscellaneous Flags");
+    settings.Add("Gate to ADAM",            false,  "Gate to ADAM          最深部のADAMへの隔壁", "Miscellaneous Flags");
     settings.Add("Beat the Game",           true,   "Beat the Game         ゲームクリア", "Miscellaneous Flags");
     
     settings.SetToolTip("Lockpick Flag", "Find out Adar's house is locked by inspecting the door");
@@ -117,22 +117,22 @@ startup {
     // Locations
     settings.Add("Locations",           true, "Locations              場所");
 
-    settings.Add("Enter Doki Forest",       false,   "Enter Doki Forest         ドキの森", "Locations");
-    settings.Add("Enter Atai Region",       false,   "Enter Atai Region         アタイのフィールド", "Locations");
-    settings.Add("Bridge Skip",             true,    "Bridge Skip               ブリッジスキップ", "Locations");
-    settings.Add("Enter Daea Region",       false,   "Enter Daea Region         デイアのフィールド", "Locations");
-    settings.Add("Enter Aqua Line",         false,   "Enter Aqua Line           秘密の地下道", "Locations");
-    settings.Add("Enter Castle Dungeons",   false,   "Enter Castle Dungeons     城の牢獄", "Locations");
-    settings.Add("Enter White Tower",       false,   "Enter White Towers        城の塔", "Locations");
-    settings.Add("Climb White Tower",       false,   "Climb White Towers        城の塔の登り切り", "Locations");
-    settings.Add("Enter Cosette Region",    false,   "Enter Cosette Region      コセットのフィールド", "Locations");
-    settings.Add("Enter Scorchlands",       true,    "Enter Scorchlands         スコーチランド", "Locations");
-    settings.Add("Enter Mul Caves",         true,    "Enter Mul Caves           ミュール洞窟の外", "Locations");
-    settings.Add("Enter Mul Caves Nest",    false,   "Enter Mul Caves Nest      ミュール洞窟の巣", "Locations");
-    settings.Add("Enter SPHERE",            false,   "Enter SPHERE              スフィアのビル", "Locations");
-    settings.Add("Enter E.D.E.N.",          false,   "Enter E.D.E.N.            E.D.E.N.", "Locations");
-    settings.Add("Enter Lab D",             false,   "Enter E.D.E.N. Lab D      D", "Locations");
-    settings.Add("Enter Lab F",             false,   "Enter E.D.E.N. Lab F      F", "Locations");
+    settings.Add("Enter Doki Forest",       false,  "Enter Doki Forest         ドキの森", "Locations");
+    settings.Add("Enter Atai Region",       false,  "Enter Atai Region         アタイのフィールド", "Locations");
+    settings.Add("Bridge Skip",             false,  "Bridge Skip               ブリッジスキップ", "Locations");
+    settings.Add("Enter Daea Region",       false,  "Enter Daea Region         デイアのフィールド", "Locations");
+    settings.Add("Enter Aqua Line",         false,  "Enter Aqua Line           秘密の地下道", "Locations");
+    settings.Add("Enter Castle Dungeons",   false,  "Enter Castle Dungeons     城の牢獄", "Locations");
+    settings.Add("Enter White Tower",       false,  "Enter White Towers        城の塔", "Locations");
+    settings.Add("Climb White Tower",       false,  "Climb White Towers        城の塔の登り切り", "Locations");
+    settings.Add("Enter Cosette Region",    false,  "Enter Cosette Region      コセットのフィールド", "Locations");
+    settings.Add("Enter Scorchlands",       false,  "Enter Scorchlands         スコーチランド", "Locations");
+    settings.Add("Enter Mul Caves",         false,  "Enter Mul Caves           ミュール洞窟の外", "Locations");
+    settings.Add("Enter Mul Caves Nest",    false,  "Enter Mul Caves Nest      ミュール洞窟の巣", "Locations");
+    settings.Add("Enter SPHERE",            false,  "Enter SPHERE              スフィアのビル", "Locations");
+    settings.Add("Enter E.D.E.N.",          false,  "Enter E.D.E.N.            E.D.E.N.", "Locations");
+    settings.Add("Enter Lab D",             false,  "Enter E.D.E.N. Lab D      D", "Locations");
+    settings.Add("Enter Lab F",             false,  "Enter E.D.E.N. Lab F      F", "Locations");
     
     settings.SetToolTip("Locations", "These only trigger when you enter the location for the first time");
     settings.SetToolTip("Bridge Skip", "Enter the middle room of Kingdom Bridge");
